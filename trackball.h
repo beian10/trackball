@@ -38,10 +38,6 @@
 #define RISE_MODE 0
 #define FALL_MODE 1
 
-#define COLOR_RED 0
-#define COLOR_GREEN 1
-#define COLOR_BLUE 2
-
 class Trackball {
   public:
     Trackball();
@@ -53,8 +49,7 @@ class Trackball {
     bool getButtomRaw();
     bool getButtom();
     void attachKey(uint16_t _mode, void _pfunc(void) );		//设置按键电平上升沿或下降沿触发
-    void setLED(uint16_t _color, bool _state);		//设置LED颜色
-    void SetLedColor(bool R, bool G, bool B);
+    void SetLedColor(bool R, bool G, bool B);		//设置LED颜色
 
   private:
     uint8_t pinValue;

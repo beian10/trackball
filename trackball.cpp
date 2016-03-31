@@ -88,15 +88,6 @@ uint8_t Trackball::getKey()
   return bitRead(pinValue, 4);
 }
 
-void Trackball::setLED(uint16_t _color, bool _state)
-{
-  if (COLOR_RED == _color) bitWrite(pinValue, 5, (!_state)) ;
-  if (COLOR_GREEN == _color) bitWrite(pinValue, 6, (!_state));
-  if (COLOR_BLUE == _color) bitWrite(pinValue, 7, (!_state));
-
-  witerPin(pinValue | 0x1F);
-}
-
 void Trackball::SetLedColor(bool R, bool G, bool B)
 {
   bitWrite(pinValue, 5, (!R)) ;
