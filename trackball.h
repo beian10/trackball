@@ -46,13 +46,16 @@ class Trackball {
   public:
     Trackball();
     void begin();
-    void upDate();   //更新数据，需要放在loop()
+    void upData();   //更新数据，需要放在loop()
     int16_t getX();		//获取x轴的数据
     int16_t getY();				//获取y轴的数据
     uint8_t getKey();		//获取按键值
+    bool getButtomRaw();
+    bool getButtom();
     void attachKey(uint16_t _mode, void _pfunc(void) );		//设置按键电平上升沿或下降沿触发
     void setLED(uint16_t _color, bool _state);		//设置LED颜色
-    
+    void SetLedColor(bool R, bool G, bool B);
+
   private:
     uint8_t pinValue;
     uint8_t lastPinValue;
@@ -63,7 +66,7 @@ class Trackball {
 
     uint8_t readPin();
     void witerPin(uint8_t _pin);
-    
+
 };
 
 #endif

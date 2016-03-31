@@ -1,4 +1,4 @@
-#include <trackball.h>
+#include "trackball.h"
 
 Trackball::Trackball()
 {
@@ -37,7 +37,7 @@ void Trackball::witerPin(uint8_t _pin)
   Wire.endTransmission();
 }
 
-void Trackball::upDate()
+void Trackball::upData()
 {
   lastPinValue = pinValue;
 
@@ -95,4 +95,23 @@ void Trackball::setLED(uint16_t _color, bool _state)
   if (COLOR_BLUE == _color) bitWrite(pinValue, 7, (!_state));
 
   witerPin(pinValue | 0x1F);
+}
+
+void Trackball::SetLedColor(bool R, bool G, bool B)
+{
+  bitWrite(pinValue, 5, (!R)) ;
+  bitWrite(pinValue, 6, (!G));
+  bitWrite(pinValue, 7, (!B));
+
+  witerPin(pinValue | 0x1F);
+}
+
+bool Trackball::getButtomRaw()
+{
+  return bool(!bitRead(pinValue, 4));
+}
+
+bool Trackball::getButtom()
+{
+  return bool(bitRead(lastPinValue, 4) && !bitRead(pinValue, 4));
 }
