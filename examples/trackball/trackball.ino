@@ -2,6 +2,10 @@
 
 Trackball trackball;
 
+#define COLOR_RED 0
+#define COLOR_BLUE 1
+#define COLOR_GREEN 2
+
 int color;
 
 void setup() {

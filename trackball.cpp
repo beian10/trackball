@@ -22,7 +22,7 @@ uint8_t Trackball::readPin()
 {
   uint8_t pin;
   int32_t n = 500;
-  Wire.requestFrom(0x20, (uint8_t) 0x01);
+  Wire.requestFrom((uint8_t) 0x20, (uint8_t) 0x01);
   while (Wire.available() < 1 && n--)
     ;
   pin = Wire.read();
